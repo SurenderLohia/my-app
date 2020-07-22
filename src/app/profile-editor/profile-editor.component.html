@@ -1,0 +1,63 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <p>
+    <label>
+      FirstName: <br>
+      <input type="text" formControlName="firstName" required>
+    </label>
+  </p>
+  <p>
+    <label>
+      LastName: <br>
+      <input type="text" formControlName="lastName">
+    </label>
+  </p>
+  <div formGroupName="address">
+    <h3>Address</h3>
+    <p>
+      <label>
+        Street: <br>
+        <input type="text" formControlName="street">
+      </label>
+    </p>
+    <p>
+      <label>
+        City: <br>
+        <input type="text" formControlName="city">
+      </label>
+    </p>
+    <p>
+      <label>
+        State: <br>
+        <input type="text" formControlName="state">
+      </label>
+    </p>
+    <p>
+      <label>
+        Zip: <br>
+        <input type="text" formControlName="zip">
+      </label>
+    </p>
+  </div>
+  <div formArrayName="aliases">
+    <h3>Aliases</h3> <button type="button" (click)="addAlias()">Add Alias</button>
+    <div *ngFor="let alias of aliases.controls; let i = index">
+      <label>
+        Alias: <br>
+        <input type="text" [formControlName]="i" >
+      </label>
+    </div>
+  </div>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  <p>
+    <button type="button" (click)="updateProfile()">Update Profile</button>
+  </p>
+
+  <p>
+    {{ profileForm.value | json }}
+  </p>
+  <p>
+    Form Status: {{profileForm.status}}
+  </p>
+</form>
+
+<app-hero-form></app-hero-form>
