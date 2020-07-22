@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,13 +15,14 @@ import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { NameEditorComponent } from './NameEditor/NameEditor.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
-import { HeroFormComponent } from './hero-form/hero-form.component';
+import { OpenCloseComponent } from './open-close/open-close.component';
 
 @NgModule({
    imports: [
       BrowserModule,
       HttpClientModule,
       ReactiveFormsModule,
+      BrowserAnimationsModule,
       RouterModule.forRoot([
          { path: '', component: ProductListComponent },
          { path: 'products/:productId', component: ProductDetailsComponent },
@@ -39,7 +41,7 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
       ShippingComponent,
       NameEditorComponent,
       ProfileEditorComponent,
-      HeroFormComponent
+      OpenCloseComponent
    ],
    providers: [],
    bootstrap: [
